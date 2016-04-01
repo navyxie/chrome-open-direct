@@ -15,8 +15,8 @@
 (function(){
 	console.log("chrome-google-research-link-open-direct");
 	var  search= document.getElementById('search');
-	if(allA){
-		allA = search.querySelectorAll('a');
+	if(search){
+		var allA = search.querySelectorAll('a');
 		for(var  i = 0 ,len = allA.length ; i < len ; i++){
 			var currentA = allA[i];
 			var dataHref = currentA.getAttribute('data-href');
