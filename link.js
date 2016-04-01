@@ -1,30 +1,31 @@
-// console.log("chrome-google-research-link-open-direct");
-$(function(){
-	$('a').each(function(event){
-		var _this = $(this);
-		var href = _this.attr("href");
-		var dataHref = _this.attr("data-href");
-		console.log(href,dataHref);
-		if((href &&  /[^(http)]/i.test(href))  &&  (dataHref && dataHref.length) > 6){
-			console.log(href,dataHref);
-			_this.attr("href",dataHref);
-		}	 
-	})
+;(function(win,doc){
+    doc.addEventListener('click',function(e){
+        console.log(e);
+        var target = e.target;
+        if(target.tagName === 'A'){
+            var href = target.getAttribute('href');
+            if(href && /[^(http)]/i.test(href)){
+                href = pickUrl(href);
+                e.preventDefault();
+                window.open(href);
+            }
+        }
+    },false)
+    function pickUrl(url){
+        var originUrl = url;
+        try{
+            url = decodeURIComponent(url);
+            var paramArr = url.split('&');
+            for(var i = 0 , len = paramArr.length ; i < len; i++){
+                var mapObj =  paramArr[i].split('=');
+                if(mapObj[0] === 'url'){
+                    originUrl = mapObj[1];
+                    break;
+                }
+            }
+        }catch(e){
 
-});
-// (function(){
-// 	console.log("chrome-google-research-link-open-direct");
-// 	var  search= document.getElementById('search');
-// 	if(search){
-// 		var allA = search.querySelectorAll('a');
-// 		for(var  i = 0 ,len = allA.length ; i < len ; i++){
-// 			var currentA = allA[i];
-// 			var dataHref = currentA.getAttribute('data-href');
-// 			var href = currentA.getAttribute('href');		
-// 			console.log(i);
-// 			console.log('href+++++++++>',href);
-// 			console.log('reg===========>',/[^(http)]/i.test(href));
-// 			console.log('dataHref------------------>',dataHref);
-// 		}
-// 	}	
-// })()
+        }
+        return originUrl;
+    }
+})(window,document);
