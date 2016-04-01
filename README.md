@@ -4,7 +4,7 @@
 
 ##### 所以就写了一个小插件绕开Google服务器，直接跳转到目标地址，加快目标地址打开时间。
 
-##### 只需30行
+##### 只需30行:
 
 ![源码](https://mmbiz.qlogo.cn/mmbiz/E7ia3F4UicMxib3lfT21dYKLYrLUXmM24XS4u3Wq4ELzb7g08jbHLPq3D3VFAV4FpJz5XmpGE3PS5uwCEtoib56bQw/0?wx_fmt=jpeg)
 
