@@ -15,7 +15,7 @@
     "content_scripts":[
         {
             "matches":["https://www.google.com/*","https://www.google.com.hk/*","https://www.google.co.jp/*","https://www.google.co.in/*"],
-            "js":["jquery-2.2.2.min.js","link.js"]
+            "js":["link.js"]
         }
     ]
 }
