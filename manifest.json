@@ -1,6 +1,6 @@
 {
     "name": "chrome-open-direct",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "manifest_version": 2,
     "description": "直接打开google搜索结果链接",
     "browser_action": {"default_icon": "icon32.png"},
@@ -15,7 +15,7 @@
     "content_scripts":[
         {
             "matches":["https://www.google.com/*","https://www.google.com.hk/*","https://www.google.co.jp/*","https://www.google.co.in/*"],
-            "js":["link.js"]
+            "js":["zepto.min.js","link.js"]
         }
     ]
 }

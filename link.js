@@ -1,13 +1,15 @@
 ;(function(win,doc){
-    doc.addEventListener('click',function(e){
-        var target = e.target;
-        if(target.tagName === 'A'){
+    $(function(){
+        $('#search').on('click','a',function(e){
+            var target = e.target;
             var href = target.getAttribute('href');
-            if(href && /^[^(https:)]/i.test(href)){     
+            if(href && /^[^(https:)]/i.test(href)){
+                e.preventDefault();     
                 target.setAttribute('href',pickUrl(href));
+                window.open(target.getAttribute('href'));
             }
-        }
-    },false);
+        })
+    })；
     function pickUrl(url){
         var originUrl = url;
         try{
