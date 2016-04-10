@@ -1,7 +1,6 @@
 ;(function(win,doc){
     $(function(){
         $('#search').on('click','a',function(e){
-            // e.preventDefault();
             var target = e.target;
             var href = target.getAttribute('href');
             if(href && /^[^(https:)]/i.test(href)){
